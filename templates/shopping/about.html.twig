@@ -1,0 +1,34 @@
+{% extends "shopping.html.twig" %}
+
+{% block title %}
+	About
+{% endblock %}
+
+{% block body %}
+<style>
+    img.cangiua {display: block; margin-left: auto; margin-right: auto;}
+</style>
+	<div class="about-section" style="text-align:center">
+		<h1>About Us Page</h1>
+		<p>Some text about who we are and what we do.</p>
+		<p>Resize the browser window to see that this page is responsive by the way.</p>
+	</div>
+
+	<h2 style="text-align:center">Me</h2>
+	<div class="row" style="text-align:center">
+		<div class="column">
+			<div class="card">
+            {% set image = 'anh.jpg' %}
+			<img class="cangiua" src="{{ asset('images/' ~ image) }}" width='10%' height='10%' >
+				<div class="container">
+					<h2>Vũ Ngọc Tú</h2>
+					<p>Crate Website</p>
+					<p>tuvngch18505@fpt.edu.vn</p>
+					<p>
+						<a href="http://www.facebook.com/tuvngch18505/" class="btn btn-primary">Contact</a>
+					</p>
+				</div>
+			</div>
+		</div>	
+	</div>
+{% endblock %}

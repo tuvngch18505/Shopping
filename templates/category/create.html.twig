@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+{% block title %} Create Category{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 class="mt-5 mb-5 text-center"> CREATE Category </h2>
+    <div class="col-md-6 offset-md-3"></div>
+    {{ form_start (form) }}
+        <div class="form-group">
+            <h6 class="text-primary"> Category Name </h6>
+            {{ form_widget (form.name, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group text-center mt-5">
+            <button class="btn btn-info mt-2">CREATE</button>
+        </div>
+    {{ form_end (form) }}
+</div>
+{% endblock %}

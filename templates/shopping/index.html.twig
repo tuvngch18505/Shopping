@@ -1,0 +1,31 @@
+{% extends 'Shopping.html.twig' %}
+{% block title %}Guitar Shop{% endblock %}
+{% block body %}
+	<div class="container">
+        
+		<h1 class="mt-1 mb-4" style="text-align:center">All Products</h1>
+		<div class="row">
+			{% for shopping in shoppings %}
+				<div class="col-md-4">
+					<div class="card mb-4">
+						{% if shopping.image == null %}
+							<img src="{{ asset ('images/Guitar/product.jpg')}}" width="80px" height="80px">
+						{% else %}
+							<img src="{{ asset ('images/Guitar/' ~ shopping.image)}}" class="card-img-top">
+						{% endif %}
+						
+						<div class="card-body">
+							<h5 class="card-title">{{ shopping.name }}</h5>
+
+							<div class="d-flex justify-content-between align-item-center">
+								<a href="{{ path('shopping_detail', {id: shopping.id}) }}" class="btn btn-dark">View details</a>
+								<span class="h5 mt-auto">{{ shopping.price }}
+									VND</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

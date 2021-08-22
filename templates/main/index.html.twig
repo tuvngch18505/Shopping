@@ -1,0 +1,56 @@
+
+{% block stylesheets %}
+	<link href="/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+{% endblock %}
+{% block title %} Manage Page{% endblock %}
+{% block body %}
+	<style>
+		body {
+			width: 90%;
+			margin: auto;
+		}
+
+		a {
+			color: black;
+			text-decoration: none;
+		}
+		a:hover {
+			background-color: yellow;
+		}
+	</style>
+	<div class="image ">
+		{% set image = 'logo.jpg' %}
+		<img src="{{ asset('images/' ~ image) }}" width='140' height='70'>
+	</div>
+	<div class="container text-center mb-5">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<h3>
+								<a class="nav-link text-primary text-uppercase" href="{{ path ('category_index') }}">Category</a>
+							</h3>
+						</li>
+						<li class="nav-item">
+							<h3>
+								<a class="nav-link text-primary text-uppercase" href="{{ path ('product_index') }}">Product</a>
+							</h3>
+						</li>
+						<li class="nav-item text-right">
+							<h3>
+								<a class="nav-link text-primary text-uppercase text-right" style="margin-left:800px" href="{{ path ('app_logout') }}">Logout</a>
+							</h3>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="image mt-xxl-4">
+			{% set image = 'hinh_guitar_shop.jpg' %}
+			<img src="{{ asset('images/' ~ image) }}" width='80%' height='80%'>
+		</div>
+	</div>
+{% endblock %}

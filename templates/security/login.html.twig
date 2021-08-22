@@ -1,0 +1,95 @@
+{% extends 'login.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.btn {
+			margin: auto;
+			display: block;
+			height: 50px;
+			width: 200px;
+			border: none;
+			border-radius: 3px;
+			line-height: 36px;
+			text-align: center;
+			color: #ffffff;
+			font-size: 13px;
+			background-color: #e8171f;
+			cursor: pointer;
+		}
+		.content {
+			width: 760px;
+			min-height: 450px;
+			margin: 50px auto 45px;
+			padding-bottom: 100px;
+			border: 1px solid #e3e1dc;
+			border-radius: 5px;
+			background-color: #ffffff;
+		}
+
+		.input {
+			display: block;
+			margin: auto;
+			width: 80%;
+			padding: 12px 15px;
+			border: 1px solid #dad8d3;
+			border-radius: 3px;
+			line-height: 14px;
+			font-size: 12px;
+			background-color: #ffffff;
+			left: 50%;
+
+		}
+	</style>
+	<div class="content">
+		{% for message in app.session.flashbag.get("Warning") %}
+			<p class="alert alert-danger text-uppercase">{{ message }}
+			</p>
+		{% endfor %}
+		<form method="post" class="loginForm">
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
+
+			{% if app.user %}
+				<div class="mb-3">
+					You are logged in as
+					{{ app.user.username }},
+					<a href="{{ path('app_logout') }}">Logout</a>
+				</div>
+			{% endif %}
+
+			<h1 class="h3 mb-5 font-weight-normal mt-5">Log in</h1>
+			<div class="mb-4">
+				<input type="text" value="{{ last_username }}" name="username" placeholder="Enter username" class="input " autocomplete="username" required autofocus autocorrect="off" autocapitalize="off">
+			</div>
+
+			<div class="mb-4">
+				<input type="password" name="password" placeholder="Enter password" autocomplete="current-password" class="input" required>
+			</div>
+
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+			<div class="checkbox mb-3">
+				<label>
+					<input type="checkbox" name="_remember_me">
+					Remember me
+				</label>
+			</div>
+
+
+			<button class="btn btn-lg btn-warning" type="submit">
+				Log in Now
+			</button>
+			<h4 class="text-decoration-underline mt-4">
+				<a href="{{ path ('app_register') }}" class="btn btn-primary ">
+					Register new account
+				</a>
+			</h4>
+		</form>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Categories Detail {% endblock %}
+
+{% block body %}
+<style>
+    body {
+        width: 80%;
+        margin: 20px auto;
+    }
+</style>
+      <a class="btn btn-outline-success" href="{{ path ('category_index')}}">Back to list</a>  
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Product</th> 
+                <th scope="col">Actions</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row"> {{ category.id }} </td>
+                <td scope="row"> {{ category.name }} </td>
+                <td scope="row">  
+                     {% for product in category.products %}
+                           {#<a href="{{ path('book_detail', {'id' : book.id }) }}">#} {{ product.name }} {#</a>#}
+                            <br>
+                    {% endfor %}
+                </td>
+                <td>
+                     <a class="btn btn-warning" href="{{ path ('category_update', {'id' : category.id} )}}">Update</a>
+                    <a class="btn btn-danger" href="{{ path ('category_delete', {'id' : category.id} )}}"  
+                                              onclick = "return confirm ('Are you sure to delete ?')" >      
+                    Delete</a> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
